@@ -62,7 +62,7 @@ const weatherIcons: Record<string, string> = {
 };
 
 const WeatherApp = () => {
-const api_key = process.env.NEXT_PUBLIC_OPENWEATHER_KEY || 'your-api-key-here';
+const api_key = process.env.OPENWEATHER_KEY || 'your-api-key-here';
 
 const [weatherData, setWeatherData] = useState<Weather | null>(null);
 const [forecastData, setForecastData] = useState<Forecast | null>(null);
