@@ -1,3 +1,4 @@
+//homepag.tsx
 'use client'
 
 import Image from 'next/image'
@@ -10,12 +11,14 @@ import {
   Download, 
   ExternalLink, 
   Github, 
-  Linkedin, 
+  Linkedin,
+  Instagram, 
   Mail, 
   Phone,
-  User,
-  Award,
+  BicepsFlexed,
+  CloudSun,
   Briefcase,
+  FileText,
   Send,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -24,6 +27,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import TypewriterEffect from '@/components/TypewriterEffect'
+import LeetCodeIcon from '@/components/icons/LeetCodeIcon'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -41,19 +45,37 @@ const staggerContainer = {
 
 const projects = [
   {
+    id: 'justice-hub',
+    title: 'JusticeHubAI',
+    description: 'It is an AI-powered legal assistance platform designed to access to legal knowledge and connect users with professional lawyers',
+    icon: '⚖️',
+    link: 'http://justicehubai.vercel.app/',
+    tags: ['React', 'Next.js', 'Tailwindcss', 'UI/UX', 'Legal'],
+    color: 'from-white-200 to-yellow-400'
+  },
+  {
     id: 'explore-ease',
     title: 'ExploreEase',
     description: 'A comprehensive travel platform for exploring destinations',
-    icon: User,
+    icon: Briefcase,
     link: 'http://explorease-travel.vercel.app/',
     tags: ['React', 'Next.js', 'Travel', 'UI/UX'],
     color: 'from-blue-500 to-purple-600'
   },
   {
+    id: 'blog-app',
+    title: 'Blogs of Code',
+    description: 'Blogging app to share your bites of code to the people.',
+    icon: FileText,
+    link: 'http://justicehubai.vercel.app/',
+    tags: ['React', 'Tailwindcss', 'UI/UX', 'Blog', 'MERN'],
+    color: 'from-green-400 to-purple-400'
+  },
+  {
     id: 'weather-app',
     title: 'Weather App',
     description: 'Real-time weather application with beautiful UI',
-    icon: Award,
+    icon: CloudSun,
     link: 'https://weather-app-1131.netlify.app/',
     tags: ['JavaScript', 'API', 'Responsive', 'PWA'],
     color: 'from-green-500 to-blue-500'
@@ -62,7 +84,7 @@ const projects = [
     id: 'fit-suratgarh',
     title: 'Fit Suratgarh',
     description: 'Fitness center website with modern design',
-    icon: Briefcase,
+    icon: BicepsFlexed,
     link: 'https://paras202.github.io/Fit_suratgarh/',
     tags: ['HTML', 'CSS', 'JavaScript', 'Fitness'],
     color: 'from-orange-500 to-red-500'
@@ -167,13 +189,16 @@ export default function Home() {
               className="flex justify-center lg:justify-start space-x-6"
             >
               <Link href="https://leetcode.com/parasagarwal554/" className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
-                <User className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                <LeetCodeIcon className="h-5 w-5 text-yellow-600" />
               </Link>
               <Link href="https://www.linkedin.com/in/paras-singla-82617b259/" className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                 <Linkedin className="h-5 w-5 text-blue-600" />
               </Link>
               <Link href="https://github.com/paras202" className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                 <Github className="h-5 w-5 text-gray-900 dark:text-white" />
+              </Link>
+              <Link href="https://github.com/paras202" className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+                <Instagram className="h-5 w-5 text-pink-600" />
               </Link>
             </motion.div>
           </motion.div>
@@ -295,7 +320,12 @@ export default function Home() {
                 <Card className="group h-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <CardHeader className="text-center">
                     <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${project.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <project.icon className="h-8 w-8 text-white" />
+                      {typeof project.icon === 'string' ? (
+                        <span className="text-2xl">{project.icon}</span>
+                      ) : (
+                        <project.icon className="h-8 w-8 text-white" />
+                      )}
+
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
                       {project.title}

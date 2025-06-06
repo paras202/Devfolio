@@ -6,6 +6,7 @@ import {
   Heart,
   Github,
   Linkedin,
+  Instagram,
   Mail,
   Phone,
   MapPin,
@@ -30,10 +31,16 @@ const socialLinks = [
     color: 'hover:text-blue-600'
   },
   {
+    name: 'Instagram',
+    href: '',
+    icon: Instagram,
+    color: 'hover:text-pink-600'
+  },
+  {
     name: 'Email',
-    href: 'mailto:pssingla224@gmail.com',
+    href: 'mailto:paras214062@gmail.com',
     icon: Mail,
-    color: 'hover:text-red-500'
+    color: 'hover:text-red-600'
   }
 ]
 
